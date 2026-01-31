@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keajaiban Kawah Ijen Blue Fire</title>
+    <style>
+        /* --- CSS VARIABLES (Ganti warna tema di sini) --- */
+        :root {
+            --primary-color: #0ea5e9; /* Warna Biru Api */
+            --secondary-color: #1e293b; /* Warna Gelap/Abu Tua */
+            --accent-color: #f59e0b; /* Warna Kuning/Belerang */
+            --text-dark: #334155;
+            --text-light: #f8fafc;
+            --bg-light: #f1f5f9;
+            --bg-white: #ffffff;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- RESET & BASIC STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: rgba(30, 41, 59, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu Button (Hidden on Desktop) */
+        .menu-toggle {
+            display: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            /* GANTI URL GAMBAR BACKGROUND DI BAWAH INI */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/galery5.jfif");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .about-image img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            height: auto;
+        }
+
+        /* --- FEATURES / HIGHLIGHTS --- */
+        .features {
+            background-color: var(--bg-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: white;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            height: 250px; /* Tinggi gambar seragam */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* --- INFO / TIPS SECTION --- */
+        .info {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+        }
+
+        .info .section-title h2 {
+            color: var(--text-light);
+        }
+        
+        .info .section-title p {
+            color: #94a3b8;
+        }
+
+        .info-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .info-box {
+            flex: 1 1 300px;
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .info-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .info-box ul {
+            padding-left: 20px;
+            list-style: disc;
+            color: #cbd5e1;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 50px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-col h3 {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p, .footer-col a {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-col a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplifikasi untuk tanpa JS kompleks */
+            }
+            
+            /* Atau jika ingin menu burger, bisa ditambahkan CSS sederhana. 
+               Untuk versi statis ini, kita tampilkan menu vertikal di bawah hero jika mobile, 
+               atau gunakan nav scroll sederhana. Kita sembunyikan link dulu. */
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1; /* Gambar di atas teks pada mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span>🔥</span> IjenBlueFire
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#keunikan">Keunikan</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#info">Info Wisata</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Saksi Keajaiban Api Biru Dunia</h1>
+            <p>Jelajahi fenomena magis Kawah Ijen, tempat di mana api biru menyala di tengah kegelapan malam dan danau kawah asam terbesar di dunia.</p>
+            <a href="#tentang" class="btn">Pelajari Lebih Lanjut</a>
+        </div>
+    </section>
+
+    <!-- TENTANG SECTION -->
+    <section id="tentang">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fenomena Api Biru</h2>
+                <p>Mengapa Kawah Ijen begitu istimewa dan berbeda dari gunung berapi lainnya?</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Apa itu Api Biru Ijen?</h3>
+                    <p>
+                        Api biru di Kawah Ijen sebenarnya adalah hasil dari pembakaran gas sulfur (belerang) yang muncul dari celah-celah gunung berapi. Suhu gas bisa mencapai 600 derajat Celcius.
+                    </p>
+                    <p>
+                        Saat gas sulfur bertemu dengan udara, ia menyala dengan nyala berwarna biru elektrik. Fenomena ini hanya terlihat jelas pada malam hari atau sebelum fajar, menciptakan pemandangan yang menyerupai aliran lava berwarna biru, namun sejatinya itu adalah api gas.
+                    </p>
+                    <p>
+                        Selain api biru, Kawah Ijen juga memiliki danau kawah dengan pH hampir 0 (sangat asam), yang merupakan danau asam terbesar di dunia.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <!-- GAMBAR: TENTANG -->
+                    <img src="img/galery4.jfif" alt="Penambang belerang Kawah Ijen" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEUNIKAN / HIGHLIGHTS -->
+    <section id="keunikan" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pesona Utama</h2>
+                <p>Tiga alasan utama mengapa Kawah Ijen wajib masuk dalam daftar perjalanan Anda.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💠</div>
+                    <h4>Blue Fire Terbesar</h4>
+                    <p>Kawah Ijen adalah salah satu dari sedikit tempat di bumi di mana Anda bisa melihat fenomena api biru elektromagnetik ini.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💧</div>
+                    <h4>Danau Asam Terbesar</h4>
+                    <p>Danau kawah berwarna toska yang memukau ini memiliki tingkat keasaman tinggi dan merupakan yang terbesar di dunia.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⛏️</div>
+                    <h4>Tradisi Penambang</h4>
+                    <p>Saksikan ketangguhan penambang belerang lokal yang mengangkat beban berat turun-naik gunung dengan cara tradisional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI FOTO -->
+    <section id="galeri">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri Keindahan</h2>
+                <p>Sekilas pandang keindahan alam Banyuwangi dari puncak Kawah Ijen.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- GAMBAR GALERI 1 -->
+                <div class="gallery-item">
+                    <img src="img/fenomena.jpg" alt="Api Biru Malam Hari">
+                </div>
+                <!-- GAMBAR GALERI 2 -->
+                <div class="gallery-item">
+                    <img src="img/kawaj ijen1.jpg" alt="Danau Kawah Ijen Siang Hari">
+                </div>
+                <!-- GAMBAR GALERI 3 -->
+                <div class="gallery-item">
+                    <img src="img/pekerja.jpg" alt="Penambang Belerang">
+                </div>
+                <!-- GAMBAR GALERI 4 -->
+                <div class="gallery-item">
+                    <img src="img/pagi.jpg" alt="Sunrise di Paltuding">
+                </div>
+                <!-- GAMBAR GALERI 5 -->
+                <div class="gallery-item">
+                    <img src="img/galery1.webp" alt="Pemandangan Lanskap">
+                </div>
+                <!-- GAMBAR GALERI 6 -->
+                <div class="gallery-item">
+                    <img src="img/diatas awan.jpg" alt="Awan di Puncak">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO WISATA / TIPS -->
+    <section id="info" class="info">
+        <div class="container">
+            <div class="section-title">
+                <h2>Panduan Pendakian</h2>
+                <p>Persiapan penting sebelum Anda mendaki ke puncak Kawah Ijen.</p>
+            </div>
+
+            <div class="info-content">
+                <div class="info-box">
+                    <h4>Waktu Terbaik</h4>
+                    <ul>
+                        <li>Waktu terbaik melihat Blue Fire: Dini hari (jam 01:00 - 03:00).</li>
+                        <li>Sunrise: Sekitar jam 05:00 - 06:00.</li>
+                        <li>Cuaca cerah (Juni - Oktober) adalah musim terbaik.</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>Persiapkan Diri</h4>
+                    <ul>
+                        <li>Gunakan pakaian hangat (suhu bisa mencapai 10°C).</li>
+                        <li>Wajib menggunakan <strong>Masker Gas</strong> (bisa sewa di Paltuding).</li>
+                        <li>Senter (headlamp) wajib dinyalakan saat malam.</li>
+                        <li>Sepatu anti licin dan nyaman.</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h4>Akses & Lokasi</h4>
+                    <ul>
+                        <li>Pos pendakian dimulai dari Paltuding.</li>
+                        <li>Berlokasi di perbatasan Banyuwangi dan Bondowoso.</li>
+                        <li>Jarak tempuh pendakian sekitar 3km (1.5 - 2 jam).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>IjenBlueFire</h3>
+                    <p>Website informasi pariwisata Kawah Ijen untuk memperkenalkan keindahan alam Indonesia ke dunia.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Tautan Cepat</h3>
+                    <a href="#home">Beranda</a>
+                    <a href="#tentang">Tentang</a>
+                    <a href="#galeri">Galeri Foto</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak</h3>
+                    <p>Email: info@kawahijen.com</p>
+                    <p>Lokasi: Banyuwangi, Jawa Timur, Indonesia</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Pesona Kawah Ijen. Dibuat untuk tujuan showcase.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
